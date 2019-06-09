@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "968038207816",
+    "firebase_url": "https://icebreaker-5610c.firebaseio.com",
+    "project_id": "icebreaker-5610c",
+    "storage_bucket": "icebreaker-5610c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968038207816:android:110995f04b3a9efe",
+        "android_client_info": {
+          "package_name": "com.example.st_hack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "968038207816-2l88bch8q48n736u0u5sqcksu96ruoe2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.st_hack",
+            "certificate_hash": "60cf3836966daa45395883a2a146929f034a8f4e"
+          }
+        },
+        {
+          "client_id": "968038207816-ot3s3t3nq1pi4rs8j5cja1rateumtbsh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4RFpKN0kaEh9aYlOWBD6RnKyvXANqZ4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "968038207816-ot3s3t3nq1pi4rs8j5cja1rateumtbsh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
