@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:st_hack/Authentication/auth.dart';
 import 'package:st_hack/Authentication/auth_provider.dart';
 
-
-
 class EmailFieldValidator {
   static String validate(String value) {
     return value.isEmpty ? 'Email can\'t be empty' : null;
@@ -17,7 +15,6 @@ class PasswordFieldValidator {
 }
 
 class LoginPage extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() => _LoginPageState();
 }
@@ -48,10 +45,12 @@ class _LoginPageState extends State<LoginPage> {
       try {
         final BaseAuth auth = AuthProvider.of(context).auth;
         if (_formType == FormType.login) {
-          final String userId = await auth.signInWithEmailAndPassword(_email, _password);
+          final String userId =
+              await auth.signInWithEmailAndPassword(_email, _password);
           print('Signed in: $userId');
         } else {
-          final String userId = await auth.createUserWithEmailAndPassword(_email, _password);
+          final String userId =
+              await auth.createUserWithEmailAndPassword(_email, _password);
           print('Registered user: $userId');
         }
       } catch (e) {
@@ -78,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter login demo'),
+        title: Text('IceBreaker'),
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
@@ -95,19 +94,56 @@ class _LoginPageState extends State<LoginPage> {
 
   List<Widget> buildInputs() {
     return <Widget>[
-      TextFormField(
-        key: Key('email'),
-        decoration: InputDecoration(labelText: 'Email'),
-        validator: EmailFieldValidator.validate,
-        onSaved: (String value) => _email = value,
+      Container(
+        width: MediaQuery.of(context).size.width / 1.2,
+        height: 45,
+        padding: EdgeInsets.only(top: 4, left: 16, right: 16, bottom: 4),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+            color: Colors.white,
+            boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)]),
+        child: TextFormField(
+          key: Key('email'),
+          decoration: InputDecoration(
+            hintText: 'Email',
+            border: InputBorder.none,
+            icon: Icon(
+              Icons.email,
+              color: Colors.grey,
+            ),
+          ),
+          validator: EmailFieldValidator.validate,
+          onSaved: (String value) => _email = value,
+        ),
       ),
-      TextFormField(
-        key: Key('password'),
-        decoration: InputDecoration(labelText: 'Password'),
-        obscureText: true,
-        validator: PasswordFieldValidator.validate,
-        onSaved: (String value) => _password = value,
+      new Padding(
+              padding: const EdgeInsets.all(15.0),
+),
+      Container(
+        width: MediaQuery.of(context).size.width / 1.2,
+        height: 45,
+        padding: EdgeInsets.only(top: 4, left: 16, right: 16, bottom: 4),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+            color: Colors.white,
+            boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)]),
+        child: TextFormField(
+          key: Key('password'),
+          decoration: InputDecoration(
+            hintText: 'Password',
+            border: InputBorder.none,
+            icon: Icon(
+              Icons.vpn_key,
+              color: Colors.grey,
+            ),
+          ),
+          validator: EmailFieldValidator.validate,
+          onSaved: (String value) => _password = value,
+        ),
       ),
+      new Padding(
+              padding: const EdgeInsets.all(15.0),
+),
     ];
   }
 
@@ -116,11 +152,14 @@ class _LoginPageState extends State<LoginPage> {
       return <Widget>[
         RaisedButton(
           key: Key('signIn'),
-          child: Text('Login', style: TextStyle(fontSize: 20.0)),
+          child: Text('Login', style: TextStyle(fontSize: 20.0,color: Colors.white)),
           onPressed: validateAndSubmit,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(25.0))),
+          color: Colors.orange,
+
         ),
         FlatButton(
-          child: Text('Create an account', style: TextStyle(fontSize: 20.0)),
+          child: Text('Create an account', style: TextStyle(fontSize: 20.0,color: Colors.indigo)),
           onPressed: moveToRegister,
         ),
       ];
@@ -128,10 +167,13 @@ class _LoginPageState extends State<LoginPage> {
       return <Widget>[
         RaisedButton(
           child: Text('Create an account', style: TextStyle(fontSize: 20.0)),
+           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
           onPressed: validateAndSubmit,
+           color: Colors.lightGreen,
         ),
         FlatButton(
-          child: Text('Have an account? Login', style: TextStyle(fontSize: 20.0)),
+          child:
+              Text('Have an account? Login', style: TextStyle(fontSize: 20.0)),
           onPressed: moveToLogin,
         ),
       ];
