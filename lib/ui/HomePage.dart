@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:st_hack/Authentication/auth.dart';
 import 'package:st_hack/Authentication/auth_provider.dart';
+import 'package:st_hack/Models/navigation_drawer.dart';
 
 class HomePage extends StatelessWidget {
 
@@ -16,8 +17,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: new NavBar(),
       appBar: AppBar(
-        title: Text('Welcome'),
+        title: Text('IceBreaker'),
         actions: <Widget>[
           FlatButton(
             child: Text('Logout', style: TextStyle(fontSize: 17.0, color: Colors.white)),
@@ -26,7 +28,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: Container(
-        child: Center(child: Text('Welcome', style: TextStyle(fontSize: 32.0))),
+        child: Center(child: Text('Home', style: TextStyle(fontSize: 32.0))),
       ),
     );
 }
