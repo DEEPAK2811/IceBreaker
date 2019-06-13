@@ -97,9 +97,7 @@ class NavBar extends StatelessWidget {
                 ),
           // onTap: () => Navigator.pushNamed(context, UIData.dashboardRoute)
           ),
-           new Padding(
-                  padding: const EdgeInsets.all(5.0),
-                ),
+          
             new Padding(
                   padding: const EdgeInsets.all(5.0),
                 ),
@@ -131,7 +129,9 @@ class NavBar extends StatelessWidget {
 
 
           new Divider(
-            indent: 20.0,
+            indent: 10.0,
+            color: Colors.orange,
+            height: 8.0,
           ),
 
           new Padding(

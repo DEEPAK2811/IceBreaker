@@ -76,19 +76,38 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('IceBreaker'),
-      ),
-      body: Container(
-        padding: EdgeInsets.all(16.0),
-        child: Form(
-          key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: buildInputs() + buildSubmitButtons(),
+      
+      body: Stack(children: <Widget>[
+        Container(
+           width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height/1.3,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Color(0xFFf45d27),
+                    Color(0xFFf5851f)
+                  ],
+                ),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(90)
+                )
+),
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 108, left: 16, right: 16, bottom: 4),
+          
+          
+          child: Form(
+            key: formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: buildInputs() + buildSubmitButtons(),
+            ),
           ),
         ),
-      ),
+      ]),
     );
   }
 
@@ -117,8 +136,8 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
       new Padding(
-              padding: const EdgeInsets.all(15.0),
-),
+        padding: const EdgeInsets.all(15.0),
+      ),
       Container(
         width: MediaQuery.of(context).size.width / 1.2,
         height: 45,
@@ -142,8 +161,8 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
       new Padding(
-              padding: const EdgeInsets.all(15.0),
-),
+        padding: const EdgeInsets.all(15.0),
+      ),
     ];
   }
 
@@ -152,14 +171,16 @@ class _LoginPageState extends State<LoginPage> {
       return <Widget>[
         RaisedButton(
           key: Key('signIn'),
-          child: Text('Login', style: TextStyle(fontSize: 20.0,color: Colors.white)),
+          child: Text('Login',
+              style: TextStyle(fontSize: 20.0, color: Colors.white)),
           onPressed: validateAndSubmit,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(25.0))),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(25.0))),
           color: Colors.orange,
-
         ),
         FlatButton(
-          child: Text('Create an account', style: TextStyle(fontSize: 20.0,color: Colors.indigo)),
+          child: Text('Create an account',
+              style: TextStyle(fontSize: 22.0, color: Colors.deepPurple)),
           onPressed: moveToRegister,
         ),
       ];
@@ -167,13 +188,14 @@ class _LoginPageState extends State<LoginPage> {
       return <Widget>[
         RaisedButton(
           child: Text('Create an account', style: TextStyle(fontSize: 20.0)),
-           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20.0))),
           onPressed: validateAndSubmit,
-           color: Colors.lightGreen,
+          color: Colors.lightGreen,
         ),
         FlatButton(
           child:
-              Text('Have an account? Login', style: TextStyle(fontSize: 20.0)),
+              Text('Have an account? Login', style: TextStyle(fontSize: 20.0,color: Colors.white)),
           onPressed: moveToLogin,
         ),
       ];
