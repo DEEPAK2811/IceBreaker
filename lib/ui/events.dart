@@ -35,8 +35,39 @@ class _eventsState extends State<events> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("Available Events"),
+      ),
+      body: st(),
+      /*body: Padding(
+        padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 0.0),
+        child: Expanded(
+          child: SizedBox(
+            height: 400.0,
+            child: st(),
+          ),
+        ),
+      ),*/
+    );
   }
+
+  Widget st() => new StreamBuilder<QuerySnapshot>(
+        stream: Firestore.instance.collection("eventdata").snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError) return new Text('${snapshot.error}');
+          switch (snapshot.connectionState) {
+            case ConnectionState.waiting:
+              return new Center(child: new CircularProgressIndicator());
+            default:
+              var documents = snapshot.data?.documents ?? [];
+              var docs = documents
+                  .map((snapshot) => JoblistModel.from(snapshot))
+                  .toList();
+              return JobPage(docs);
+          }
+        },
+      );
 }
 
 class JobPage extends StatefulWidget {
@@ -80,6 +111,6 @@ class JobPageState extends State<JobPage> {
   Widget background_img(BuildContext context) => DecoratedBox(
         decoration: new BoxDecoration(
             image: new DecorationImage(
-                image: AssetImage("assets/bg.jpg"), fit: BoxFit.cover)),
+                image: AssetImage("assets/back.png"), fit: BoxFit.cover)),
       );
 }
