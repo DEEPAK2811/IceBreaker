@@ -17,7 +17,7 @@ class NavBar extends StatelessWidget {
               style: TextStyle(color: Colors.white),
             ),
             currentAccountPicture: new CircleAvatar(
-              //backgroundImage: AssetImage("assets/bg.png"),
+              backgroundImage: AssetImage("assets/back.png"),
               radius: 60,
               child: Icon(
                 Icons.person,
@@ -25,6 +25,9 @@ class NavBar extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
+             decoration: BoxDecoration(image: new DecorationImage(
+               image: AssetImage("assets/back.png"), fit: BoxFit.cover
+)),
           ),
           InkWell(
             child: Container(
@@ -37,13 +40,13 @@ class NavBar extends StatelessWidget {
                   Icon(
                     Icons.event,
                     size: 38,
-                    color: Colors.orange,
+                    color: Colors.black,
                   ),
                   new Padding(
                     padding: const EdgeInsets.fromLTRB(15.0, 0.0, 5.0, 0.0),
                   ),
                   new Text("Create Events",
-                      style: TextStyle(fontSize: 20.0, color: Colors.purple)),
+                      style: TextStyle(fontSize: 20.0, color: Colors.pink)),
                 ],
               ),
             ),
@@ -70,13 +73,13 @@ class NavBar extends StatelessWidget {
                   Icon(
                     Icons.event_available,
                     size: 38,
-                    color: Colors.orange,
+                    color: Colors.black,
                   ),
                   new Padding(
                     padding: const EdgeInsets.fromLTRB(15.0, 0.0, 5.0, 0.0),
                   ),
                   new Text("Available Event",
-                      style: TextStyle(fontSize: 20.0, color: Colors.purple)),
+                      style: TextStyle(fontSize: 20.0, color: Colors.pink)),
                 ],
               ),
             ),
@@ -102,13 +105,13 @@ class NavBar extends StatelessWidget {
                   Icon(
                     Icons.settings,
                     size: 38,
-                    color: Colors.orange,
+                    color: Colors.purple,
                   ),
                   new Padding(
                     padding: const EdgeInsets.fromLTRB(15.0, 0.0, 5.0, 0.0),
                   ),
                   new Text("Settings",
-                      style: TextStyle(fontSize: 20.0, color: Colors.purple)),
+                      style: TextStyle(fontSize: 20.0, color: Colors.teal)),
                 ],
               ),
             ),
@@ -134,7 +137,7 @@ class NavBar extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(15.0, 0.0, 5.0, 0.0),
                   ),
                   new Text("Export My Data",
-                      style: TextStyle(fontSize: 20.0, color: Colors.purple)),
+                      style: TextStyle(fontSize: 20.0, color: Colors.black)),
                 ],
               ),
             ),
@@ -162,7 +165,7 @@ class NavBar extends StatelessWidget {
                   Icon(
                     Icons.exit_to_app,
                     size: 38,
-                    color: Colors.orange,
+                    color: Colors.teal,
                   ),
                   new Padding(
                     padding: const EdgeInsets.fromLTRB(15.0, 0.0, 5.0, 0.0),
