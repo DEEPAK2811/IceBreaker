@@ -143,7 +143,7 @@ class HelpPageState extends State<HelpPage> {
   Widget background_img(BuildContext context) => DecoratedBox(
         decoration: new BoxDecoration(
             image: new DecorationImage(
-                image: AssetImage("assets/back.png"), fit: BoxFit.cover)),
+                image: AssetImage("assets/3.png"), fit: BoxFit.cover)),
       );
 
 

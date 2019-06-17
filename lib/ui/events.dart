@@ -39,6 +39,7 @@ class _eventsState extends State<events> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Available Events"),
+        backgroundColor: Colors.white12,
       ),
       body: st(),
       /*body: Padding(
@@ -112,6 +113,6 @@ class JobPageState extends State<JobPage> {
   Widget background_img(BuildContext context) => DecoratedBox(
         decoration: new BoxDecoration(
             image: new DecorationImage(
-                image: AssetImage("assets/back.png"), fit: BoxFit.cover)),
+                image: AssetImage("assets/4.png"), fit: BoxFit.cover)),
       );
 }

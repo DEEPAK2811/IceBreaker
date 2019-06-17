@@ -19,6 +19,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       drawer: new NavBar(),
       appBar: AppBar(
+         backgroundColor: Colors.purple[200],
         title: Text('IceBreaker'),
         actions: <Widget>[
           FlatButton(

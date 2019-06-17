@@ -12,7 +12,7 @@ class createjob extends StatefulWidget {
 
 class _createjobState extends State<createjob> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
-  
+
   List<String> _types = <String>[
     'Engingeering',
     'Arts',
@@ -34,11 +34,11 @@ class _createjobState extends State<createjob> {
       "title": "${jb.title}",
       "desc": "${jb.description}",
       "location": "${jb.location}",
-      "organisation":"${jb.organisation}",
-      "email":"${jb.email}",
-      "name":"${jb.name}",
-      "event_type":"${jb.type}",
-      "secret_key":"${jb.secret_key_string}",
+      "organisation": "${jb.organisation}",
+      "email": "${jb.email}",
+      "name": "${jb.name}",
+      "event_type": "${jb.type}",
+      "secret_key": "${jb.secret_key_string}",
       "id": "${count}",
     };
     documentReference.setData(data).whenComplete(() {
@@ -47,11 +47,12 @@ class _createjobState extends State<createjob> {
     count = count + 1;
   }
 
-@override
+  @override
   void dispose() {
     super.dispose();
     subscription?.cancel();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,44 +67,85 @@ class _createjobState extends State<createjob> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   children: <Widget>[
                     SizedBox(height: 50.0),
-                    new TextFormField(
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.person),
-                        hintText: 'Enter Event title',
-                        labelText: 'Event Title',
+                    Container(
+                      height: 55,
+                      padding: EdgeInsets.only(
+                          top: 0, left: 16, right: 16, bottom: 0),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(50)),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(color: Colors.orange, blurRadius: 5)
+                          ]),
+                      child: new TextFormField(
+                        decoration: const InputDecoration(
+                            icon: const Icon(Icons.event),
+                            hintText: 'Enter Event Title',
+                            labelText: 'Event Title'),
+                        //   inputFormatters: [new LengthLimitingTextInputFormatter(30) ],
+                        onSaved: (val) => jb.title = val,
                       ),
-                      inputFormatters: [
-                        new LengthLimitingTextInputFormatter(30)
-                      ],
-                      onSaved: (val) => jb.title = val,
                     ),
                     SizedBox(height: 24.0),
-                    new TextFormField(
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.home),
-                        hintText: 'Enter the name of your organisation',
-                        labelText: 'Organisation',
+                    Container(
+                      height: 55,
+                      padding: EdgeInsets.only(
+                          top: 0, left: 16, right: 16, bottom: 0),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(50)),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(color: Colors.orange, blurRadius: 5)
+                          ]),
+                      child: new TextFormField(
+                        decoration: const InputDecoration(
+                          icon: const Icon(Icons.home),
+                          hintText: 'Enter the name of your organisation',
+                          labelText: 'Organisation',
+                        ),
+                        onSaved: (val) => jb.organisation = val,
                       ),
-                      onSaved: (val) => jb.organisation = val,
                     ),
                     SizedBox(height: 24.0),
-                    new TextFormField(
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.person),
-                        hintText: 'Enter your first and last name',
-                        labelText: 'Your Name',
+                    Container(
+                      height: 55,
+                      padding: EdgeInsets.only(
+                          top: 0, left: 16, right: 16, bottom: 0),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(50)),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(color: Colors.orange, blurRadius: 5)
+                          ]),
+                      child: new TextFormField(
+                        decoration: const InputDecoration(
+                          icon: const Icon(Icons.person),
+                          hintText: 'Enter your first and last name',
+                          labelText: 'Your Name',
+                        ),
+                        onSaved: (val) => jb.name = val,
                       ),
-                      onSaved: (val) => jb.name = val,
                     ),
                     SizedBox(height: 24.0),
-                    new TextFormField(
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.email),
-                        hintText: 'Enter your email address',
-                        labelText: 'Email',
+                    Container(
+                      height: 55,
+                      padding: EdgeInsets.only(
+                          top: 0, left: 16, right: 16, bottom: 0),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(50)),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(color: Colors.orange, blurRadius: 5)
+                          ]),
+                      child: new TextFormField(
+                        decoration: const InputDecoration(
+                          icon: const Icon(Icons.email),
+                          hintText: 'Enter your email address',
+                          labelText: 'Email',
+                        ),
+                        keyboardType: TextInputType.emailAddress,
+                        onSaved: (val) => jb.email = val,
                       ),
-                      keyboardType: TextInputType.emailAddress,
-                      onSaved: (val) => jb.email = val,
                     ),
                     SizedBox(height: 24.0),
                     new TextFormField(
@@ -163,6 +205,9 @@ class _createjobState extends State<createjob> {
                         child: new RaisedButton(
                           child: const Text('Create'),
                           onPressed: _submitform,
+                          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15.0))),
+              color: Colors.orange,
                         )),
                   ],
                 ))),
@@ -177,7 +222,7 @@ class _createjobState extends State<createjob> {
     print('Submitting to back end...');
     _add();
     print('Going to home...');
-     Navigator.pushNamed(context, Uidata.home);
+    Navigator.pushNamed(context, Uidata.home);
   }
 }
 
