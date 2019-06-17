@@ -33,7 +33,7 @@ class JobCardState extends State<JobCard> {
             ),
             actions: <Widget>[
               new FlatButton(
-                child: new Text("Join"),
+                child: new Text('Join Event',style: TextStyle(fontSize: 16.0, color: Colors.white)),
                 onPressed: () {
                   if (textEditController.text == data.secret_key) {
                     my_space_id = data.id;
@@ -41,6 +41,9 @@ class JobCardState extends State<JobCard> {
                     Navigator.pushNamed(context, Uidata.event_space);
                   }
                 },
+                shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15.0))),
+              color: Colors.orange,
               ),
             ],
           );
@@ -51,7 +54,7 @@ class JobCardState extends State<JobCard> {
     return new Card(
         child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
       ListTile(
-        leading: const Icon(Icons.book),
+        leading: const Icon(Icons.event_note),
         title: Text('${data.name.toUpperCase()} :: ${data.location} '),
         subtitle: Text('Description: ${data.desc} .'),
       ),
@@ -59,12 +62,18 @@ class JobCardState extends State<JobCard> {
           // make buttons use the appropriate styles for cards
           child: new ButtonBar(children: <Widget>[
         new FlatButton(
-          child: const Text('Join Event'),
+          child: new Text('Join Event',style: TextStyle(fontSize: 14.0, color: Colors.white)),
           onPressed: () => _displayDialog(context),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15.0))),
+              color: Colors.green,
         ),
         new FlatButton(
-          child: const Text('Deny/Out of reach'),
+           child: new Text('Deny/Out of Reach',style: TextStyle(fontSize: 14.0, color: Colors.white)),
           onPressed: () {/* ... */},
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15.0))),
+              color: Colors.red,
         )
       ]))
     ]));
