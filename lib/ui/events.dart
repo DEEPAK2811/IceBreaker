@@ -10,8 +10,9 @@ class events extends StatefulWidget {
 }
 
 class _eventsState extends State<events> {
-  StreamSubscription<DocumentSnapshot> subscription;
   String myText;
+  /*StreamSubscription<DocumentSnapshot> subscription;
+  
   final DocumentReference documentReference =
       Firestore.instance.document("eventdata/events");
 
@@ -31,7 +32,7 @@ class _eventsState extends State<events> {
   void dispose() {
     super.dispose();
     subscription?.cancel();
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
