@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:st_hack/Models/Joblistmodel.dart';
+import 'package:st_hack/ui/Uidata.dart';
+import 'package:st_hack/ui/verify_key.dart';
 
 class JobCard extends StatefulWidget {
   final JoblistModel data;
@@ -16,8 +17,34 @@ class JobCard extends StatefulWidget {
 class JobCardState extends State<JobCard> {
   JoblistModel data;
   String renderUrl;
+  TextEditingController textEditController = new TextEditingController();
 
   JobCardState(this.data);
+
+   _displayDialog(BuildContext context) async {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Enter Key'),
+            content: TextField(
+              controller: textEditController,
+              decoration: InputDecoration(hintText: "Enter Secret Key to join"),
+            ),
+            actions: <Widget>[
+              new FlatButton(
+              child: new Text("Join"),
+              onPressed: () {
+                if (textEditController.text == data.id) {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, Uidata.event_space);
+                }
+              },
+            ),
+            ],
+          );
+        });
+  }
 
   Widget get jobCard {
     return new Card(
@@ -31,11 +58,10 @@ class JobCardState extends State<JobCard> {
           // make buttons use the appropriate styles for cards
           child: new ButtonBar(children: <Widget>[
         new FlatButton(
-          child: const Text('Agree=>Work'),
-          onPressed: () {/* ... */},
-        ),
+            child: const Text('Join Event'),
+            onPressed: () => _displayDialog(context),),
         new FlatButton(
-          child: const Text('Deny'),
+          child: const Text('Deny/Out of reach'),
           onPressed: () {/* ... */},
         )
       ]))
@@ -45,8 +71,7 @@ class JobCardState extends State<JobCard> {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      child: jobCard,
-      padding:const EdgeInsets.fromLTRB(4.0, 0.0, 4.0, 10.0)
-    );
+        child: jobCard,
+        padding: const EdgeInsets.fromLTRB(4.0, 0.0, 4.0, 10.0));
   }
 }
