@@ -11,7 +11,7 @@ class events extends StatefulWidget {
 
 class _eventsState extends State<events> {
   String myText;
-  /*StreamSubscription<DocumentSnapshot> subscription;
+  StreamSubscription<DocumentSnapshot> subscription;
   
   final DocumentReference documentReference =
       Firestore.instance.document("eventdata/events");
@@ -32,7 +32,7 @@ class _eventsState extends State<events> {
   void dispose() {
     super.dispose();
     subscription?.cancel();
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +56,7 @@ class _eventsState extends State<events> {
 
   Widget st() => new StreamBuilder<QuerySnapshot>(
         stream: Firestore.instance.collection("eventdata").snapshots(),
+
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) return new Text('${snapshot.error}');
           switch (snapshot.connectionState) {
@@ -93,6 +94,7 @@ class JobPageState extends State<JobPage> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: SafeArea(
+          top: false,
             child: Scaffold(
           backgroundColor: Colors.black,
           body: Stack(
@@ -103,7 +105,7 @@ class JobPageState extends State<JobPage> {
                   itemCount: widget.allJobs.length,
                   padding: const EdgeInsets.only(top: 30.0),
                   itemBuilder: (context, index) {
-                    return JobCard(widget.allJobs[index]);
+                    return JobCard(widget.allJobs[index],context);
                   }),
             ],
           ),

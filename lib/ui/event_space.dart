@@ -14,8 +14,8 @@ class Event_space extends StatefulWidget {
 }
 
 class _Event_spaceState extends State<Event_space> {
-  StreamSubscription<DocumentSnapshot> subscription;
-  String myText;
+  //StreamSubscription<DocumentSnapshot> subscription;
+ 
   static int help_count = 0;
   //static String get my_space_id => my_space_id;
   static String my_space_id = JobCardState.my_space_id;
@@ -50,9 +50,10 @@ class _Event_spaceState extends State<Event_space> {
       body: st(),
       floatingActionButton: FloatingActionButton(
             onPressed: () {
-               print('Submitting to back end...value:');
+               print('Submitting to back end...value in eventspace :');
                print(my_space_id);
-             // Navigator.pushNamed(context, Uidata.create_help);
+Navigator.pop(context);
+             Navigator.pushNamed(context, Uidata.create_help);
             },
             child: Icon(Icons.add),
           ),
@@ -121,10 +122,11 @@ class HelpPageState extends State<HelpPage> {
     //  }).toList();
 
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
+       // debugShowCheckedModeBanner: false,
         home: SafeArea(
+          top: false,
             child: Scaffold(
-          backgroundColor: Colors.black,
+          //backgroundColor: Colors.black,
           body: Stack(
             fit: StackFit.expand,
             children: <Widget>[
@@ -143,7 +145,8 @@ class HelpPageState extends State<HelpPage> {
   Widget background_img(BuildContext context) => DecoratedBox(
         decoration: new BoxDecoration(
             image: new DecorationImage(
-                image: AssetImage("assets/3.png"), fit: BoxFit.cover)),
+                image: AssetImage("assets/3.png"), 
+                fit: BoxFit.cover)),
       );
 
 

@@ -22,8 +22,9 @@ class HelpListModel {
     this.name ??= 'Deepak';
     this.desc ??= 'Flutter Developer';
     this.email ??= 'deepakprakash2811@gmail.com';
-    this.id ??= '7';
     this.title ??= 'TESTING';
+    this.id ??= '7';
+    
   }
 
   factory HelpListModel.from(DocumentSnapshot document) => HelpListModel.data(

@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
       drawer: new NavBar(),
       appBar: AppBar(
          backgroundColor: Colors.purple[200],
-        title: Text('IceBreaker'),
+        title: Text('IceBreaker'), 
         actions: <Widget>[
           FlatButton(
             child: Text('Logout', style: TextStyle(fontSize: 17.0, color: Colors.white)),
