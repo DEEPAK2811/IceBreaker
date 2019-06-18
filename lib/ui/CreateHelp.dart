@@ -27,9 +27,9 @@ class _CreateHelpState extends State<CreateHelp> {
   HelpValues hv = new HelpValues();
   StreamSubscription<DocumentSnapshot> subscription;
   final DocumentReference documentReference =
-      Firestore.instance.document("event_space$my_space_id/$count");
-  static int count = 1;
-  String oneAsString = count.toString();
+      Firestore.instance.document("event_space$my_space_id/$count_help");
+  static int count_help = 1;
+  String oneAsString = count_help.toString();
 
   void _add() {
     Map<String, String> data = <String, String>{
@@ -37,12 +37,12 @@ class _CreateHelpState extends State<CreateHelp> {
       "desc": "${hv.description}",
       "email":"${hv.email}",
       "name":"${hv.name}",
-      "id": "${count}",
+      "id": "${count_help}",
     };
     documentReference.setData(data).whenComplete(() {
       print("Document Added");
     }).catchError((e) => print(e));
-    count = count + 1;
+    count_help = count_help + 1;
   }
 
 @override

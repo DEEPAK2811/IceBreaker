@@ -5,9 +5,8 @@ class HelpListModel {
   String name;
   String desc;
   String email;
-  String id;
   String title;
-  
+  String id;
 
   HelpListModel.data(this.reference,
       [this.name,
@@ -32,8 +31,9 @@ class HelpListModel {
       document.data['name'],
       document.data['desc'],
       document.data['email'],
-      document.data['id'],
       document.data['title'],
+      document.data['id'],
+      
       );
 
   void save() {

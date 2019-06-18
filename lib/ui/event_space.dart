@@ -52,7 +52,7 @@ class _Event_spaceState extends State<Event_space> {
             onPressed: () {
                print('Submitting to back end...value in eventspace :');
                print(my_space_id);
-Navigator.pop(context);
+//Navigator.pop(context);
              Navigator.pushNamed(context, Uidata.create_help);
             },
             child: Icon(Icons.add),
